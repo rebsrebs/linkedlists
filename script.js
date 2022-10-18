@@ -135,7 +135,22 @@ class LinkedList {
 
   // find(value) returns the index of the node containing value, or null if not found.
   find(value) {
-
+    if (this.head === null) {
+      return null;
+    } else {
+      let i = 0;
+      let current = this.head;
+      while (current) {
+        if (value === current.value) {
+          return i;
+        } else if (current.nextNode) {
+          current = current.nextNode;
+          i++;
+        } else {
+          return null;
+        }
+      }
+    }
   }
 
   //The format should be: ( value ) -> ( value ) -> ( value ) -> null
