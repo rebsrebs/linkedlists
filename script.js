@@ -41,7 +41,7 @@ class LinkedList {
       // move previous tail to temp
       this.temp = this.tail;
       // create new node with value and no pointer
-      this.tail = nodeFactory (value, null);
+      this.tail = nodeFactory(value, null);
       // point previous tail to new tail
       this.temp.nextNode = this.tail;
     }
@@ -168,7 +168,42 @@ class LinkedList {
     }
   }
 
-  
+  // inserts a new node with the provided value at the given index.
+  insertAt(value, index) {
+    // if index is negative
+    if (index < 0 || index === null) {
+      console.log('Index must be 0 or greater.')
+      return;
+    }
+    // if list is empty and index is 0
+    if (index === 0) {
+      this.prepend(value);
+      return;
+    } else {
+      let i = 0;
+      let current = this.head;
+      let before;
+      let after;
+      while (index > i) {
+        if (!current.nextNode && index > i+1) {
+          console.log('Index number is too big');
+          return;
+        }
+        before = current;
+        current = current.nextNode;
+        i++
+      } 
+      after = current;
+      current = nodeFactory(value);
+      before.nextNode = current;
+      current.nextNode = after;
+    }
+  }
+
+  // removes the node at the given index.
+  removeAt(index) {
+    
+  }
 
 }
 
