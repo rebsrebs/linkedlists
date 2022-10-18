@@ -202,10 +202,29 @@ class LinkedList {
 
   // removes the node at the given index.
   removeAt(index) {
-    
+    if (!this.head) {
+      console.log('List is already empty.')
+      return;
+    } else if (index < 0) {
+      console.log('Index must be 0 or greater.')
+      return;
+    } else if (index === 0) {
+      let newHead = this.head.nextNode;
+      this.head = newHead;
+      return;
+    } else {
+      let i = 1;
+      let before = this.head;
+      let current = before.nextNode;
+      let after = current.nextNode;
+      while (index > i) {
+        before = current;
+        current = after;
+        after = current.nextNode;
+        i++
+      }
+      current.value = null;
+      before.nextNode = after;
+    };
   }
-
 }
-
-
-
