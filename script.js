@@ -92,6 +92,32 @@ class LinkedList {
     }
   }
 
+  at(index) {
+    // if list is empty
+    if (this.head == null) {
+      console.log('List is empty')
+    // if index is negative
+    } else if (index < 0) {
+        console.log('Please put an index of 0 or greater.')
+    // if index is 0
+    } else if (index === 0) {
+      console.log(this.head.value);
+    } else {
+      let i = 0;
+      let current = this.head;
+      while (index > i){
+        if (current.nextNode) {
+        current = current.nextNode;
+        i++
+        } else {
+          console.log('The list is not that long.')
+          return;
+        }
+      }
+      console.log(current.value);
+    }
+  }
+
 }
 
 
