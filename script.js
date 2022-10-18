@@ -9,11 +9,19 @@ const nodeFactory = (value, nextNode) => {
   return { value, nextNode };
 };
 
+// This is another way:
+class ListNode {
+  constructor(data) {
+      this.data = data
+      this.next = null                
+  }
+}
+
 
 // LIST CLASS
 class LinkedList {
-  constructor() {
-    this.head = null;
+  constructor(head = null) {
+    this.head = head;
     this.tail = null;
     this.temp = null;
   }
@@ -29,7 +37,7 @@ class LinkedList {
       // move previous head to temp
       this.temp = this.head;
       // put new value at head and point it to temp value
-      this.head = nodeFactory(value, this.temp.value);
+      this.head = nodeFactory(value, this.temp);
     }
   }
 
@@ -43,7 +51,7 @@ class LinkedList {
       // create new node with value and no pointer
       this.tail = nodeFactory (value, null);
       // point previous tail to new tail
-      this.temp.nextNode = this.tail.value;
+      this.temp.nextNode = this.tail;
     }
   }
 
@@ -54,10 +62,9 @@ class LinkedList {
       let i = 1;
       let current = this.head;
       while (current.nextNode != null) {
-        console.log(`current.nextNode is ${current.nextNode}`);
+        console.log(`current.nextNode value is ${current.nextNode.value}`);
         i++
         current = current.nextNode;
-        console.log(`current.nextNode is ${current.nextNode}`);
       } 
       return i;
     }
