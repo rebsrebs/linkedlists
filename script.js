@@ -122,7 +122,15 @@ class LinkedList {
 
   // check if value is in list - return true or false
   contains(value) {
-
+    let current = this.head;
+    while (current) {
+      if (value === current.value) {
+        return true;
+      } else {
+        current = current.nextNode;
+      }
+    }
+    return false;
   }
 
   // find(value) returns the index of the node containing value, or null if not found.
