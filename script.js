@@ -9,14 +9,6 @@ const nodeFactory = (value, nextNode) => {
   return { value, nextNode };
 };
 
-// This is another way:
-class ListNode {
-  constructor(data) {
-      this.data = data
-      this.next = null                
-  }
-}
-
 
 // LIST CLASS
 class LinkedList {
@@ -80,6 +72,23 @@ class LinkedList {
         current = current.nextNode;
         console.log(current.value);
       } 
+    }
+  }
+
+  getHead() {
+    if (this.head == null) {
+      console.log('List is empty');
+    } else {
+      console.log(this.head.value);
+      return this.head.value;
+    }
+  }
+
+  getTail() {
+    if (this.tail == null) {
+      console.log('List is empty');
+    } else {
+      console.log(this.tail.value);
     }
   }
 
