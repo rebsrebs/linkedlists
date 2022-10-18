@@ -62,18 +62,7 @@ class LinkedList {
     }
   }
 
-  toString() {
-    if (this.head === null) {
-      console.log('List is empty');
-    } else {
-      let current = this.head;
-      console.log(current.value);
-      while (current.nextNode != null) {
-        current = current.nextNode;
-        console.log(current.value);
-      } 
-    }
-  }
+
 
   getHead() {
     if (this.head == null) {
@@ -117,6 +106,45 @@ class LinkedList {
       console.log(current.value);
     }
   }
+
+  // remove last item
+  pop() {
+    let last = this.head;
+    let penult;
+    while (last.nextNode != null) {
+      penult = last;
+      last = penult.nextNode;
+    }
+    last.value = null;
+    penult.nextNode = null;
+    this.tail = penult;
+  }
+
+  // check if value is in list - return true or false
+  contains(value) {
+
+  }
+
+  // find(value) returns the index of the node containing value, or null if not found.
+  find(value) {
+
+  }
+
+  //The format should be: ( value ) -> ( value ) -> ( value ) -> null
+  toString() {
+    if (this.head === null) {
+      console.log('List is empty');
+    } else {
+      let current = this.head;
+      console.log(current.value);
+      while (current.nextNode != null) {
+        current = current.nextNode;
+        console.log(current.value);
+      } 
+    }
+  }
+
+  
 
 }
 
