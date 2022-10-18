@@ -162,8 +162,9 @@ class LinkedList {
       console.log(current.value);
       while (current.nextNode != null) {
         current = current.nextNode;
-        console.log(current.value);
+        console.log(`${current.value} ->`);
       } 
+      console.log(null);
     }
   }
 
