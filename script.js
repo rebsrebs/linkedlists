@@ -215,8 +215,14 @@ class LinkedList {
     } else {
       let i = 1;
       let before = this.head;
-      let current = before.nextNode;
+      if (before.nextNode) {
+        var current = before.nextNode;
+      } else {
+        console.log ('There is nothing at that index number.')
+        return;
+      }      
       let after = current.nextNode;
+      
       while (index > i) {
         before = current;
         current = after;
@@ -225,6 +231,7 @@ class LinkedList {
       }
       current.value = null;
       before.nextNode = after;
+      return this.toString();
     };
   }
 }
